@@ -1,0 +1,33 @@
+<div ng-controller="editUcesnikCtrl">
+
+<form>
+		<div class="form-group">
+			<label for="naziv">Naziv</label> <input
+				ng-model="novUcesnikE.naziv" type="text" class="form-control"
+				id="naziv" placeholder="naziv">
+		</div>
+		<div class="form-group">
+			<label for="mesto">Mesto</label> <input
+				ng-model="novUcesnikE.mesto" type="text" class="form-control"
+				id="mesto" placeholder="mesto">
+		</div>
+		<div class="form-group">
+			<label for="kontakt">Kontakt</label> <input
+				ng-model="novUcesnikE.kontakt" type="text" class="form-control"
+				id="kontakt" placeholder="Kontakt">
+		</div>
+		<div class="form-group">
+			<label for="kontakt1">Odigranih susreta</label> <input
+				ng-model="novUcesnikE.odigranoSusreta" type="text" class="form-control"
+				id="kontakt1" >
+		</div>
+		<div class="form-group">
+			<label for="kontakt2">broj bodova</label> <input
+				ng-model="novUcesnikE.brojBodova" type="text" class="form-control"
+				id="kontakt2" >
+		</div>
+
+		<button ng-click="izmeni()" type="button" class="btn btn-primary">izmeni</button>
+	</form>
+
+</div>

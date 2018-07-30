@@ -1,0 +1,88 @@
+<div ng-controller="ucesnikCtrl"> 
+
+<br />
+	<form>
+		<div class="form-group">
+			<label for="naziv">Naziv</label> <input
+				ng-model="novUcesnik.naziv" type="text" class="form-control"
+				id=""naziv"" placeholder="Naziv">
+		</div>
+		<div class="form-group">
+			<label for="registracijaNA">Mesto</label> <input
+				ng-model="novUcesnik.mesto" type="text" class="form-control"
+				id="registracijaNA" placeholder="Mesto">
+		</div>
+		<div class="form-group">
+			<label for="godisteNA">Kontakt</label> <input
+				ng-model="novUcesnik.kontakt" type="text" class="form-control"
+				id="godisteNA" placeholder="Kontakt">
+		</div>
+		
+		<div class="form-group">
+			<label for="kompanijaNA">takmicenje</label> <select
+				ng-model="novUcesnik.takmicenjeId" class="form-control" id="kompanijaNA" placeholder="takmicenje">
+				<option ng-repeat="t in takmicenja" value="{{t.id}}">{{t.naziv}}</option>
+			</select>
+		</div>
+
+		<button ng-click="dodaj()" type="button" class="btn btn-primary">Dodaj</button>
+	</form>
+<br /> <br /> <br />
+
+<div class="form-group">
+			<label for="kompanijaNA1">takmicenje</label> <select
+				ng-model="trazeniUcesnik.idTakmicenje" class="form-control" id="kompanijaNA1" placeholder="takmicenje">
+				<option ng-repeat="t in takmicenja" value="{{t.id}}">{{t.naziv}}</option>
+			</select>
+		</div>
+		<div class="form-group" ng-show="otvoriNaziv">
+			<label for="naziv">Naziv</label> <input
+				ng-model="trazeniUcesnik.naziv" type="text" class="form-control"
+				id=""naziv"" placeholder="Naziv">
+		</div>
+<button ng-click="trazi()" type="button" class="btn btn-primary">Trazi</button>
+
+
+<div ng-show="otvori">
+	<div class="btn-group pull-right">
+		<button class="btn btn-primary" ng-click="nazad()" ng-disabled="page == 0">Prethodna</button>
+		<button class="btn btn-primary" ng-click="napred()" ng-disabled="page == totalPages - 1">Sledeća</button>
+	</div>
+	<br>
+	<button ng-click="predji()" class="btn btn-primary">Dodaj Rezultat</button>
+	
+<table class="table table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>Pozicija</th>
+				<th>Naziv</th>
+				<th>Mesto</th>
+				<th>Kontakt</th>
+				<th>Takmicenje</th>
+				<th>Odigranih susreta</th>
+				<th>Bodovi</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="u in  ucesnici | orderBy: '-brojBodova'">
+				<td>{{$index + 1}}</td>
+				<td>{{u.naziv}}</td>
+				<td>{{u.mesto}}</td>
+				<td>{{u.kontakt}}</td>
+				<td>{{u.takmicenjeNaziv}}</td>
+				<td>{{u.odigranoSusreta}}</td>
+				<td>{{u.brojBodova}}</td>
+				<td>
+					<button ng-click="obrisi(u.id)" class="btn btn-danger">Obriši</button>
+					<button ng-click="izmeni(u.id)" class="btn btn-warning">Izmeni</button>
+						
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+
+
+
+</div>
