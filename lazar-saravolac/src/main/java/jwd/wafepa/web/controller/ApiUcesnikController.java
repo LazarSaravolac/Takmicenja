@@ -109,8 +109,17 @@ public ResponseEntity<UcesnikDTO> get(@PathVariable Long id){
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<UcesnikDTO> add(
 			@Validated @RequestBody UcesnikDTO novUcenik){
+		
 		Ucesnik ucesnik=toUcesnik.convert(novUcenik);
-		ucesnikService.save(ucesnik);
+		
+		int maxUcesnika=ucesnik.getTakmicenje().getFormat().getBrojUcesnika();
+		int brojUcesnika=ucesnik.getTakmicenje().getUcesnici().size();
+		
+		if(brojUcesnika<maxUcesnika) {
+			ucesnikService.save(ucesnik);			
+		}else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
 		
 		
 		return new ResponseEntity<>(toDTO.convert(ucesnik),HttpStatus.CREATED);
