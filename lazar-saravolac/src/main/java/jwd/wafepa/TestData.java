@@ -5,8 +5,10 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import jwd.wafepa.model.Format;
 import jwd.wafepa.model.Takmicenje;
 import jwd.wafepa.model.Ucesnik;
+import jwd.wafepa.service.FormatService;
 import jwd.wafepa.service.TakmicenjeService;
 import jwd.wafepa.service.UcesnikService;
 
@@ -19,14 +21,26 @@ public class TestData {
 	@Autowired
 	private UcesnikService ucesnikService;
 	
+	@Autowired
+	private FormatService formatService;
+	
 	@PostConstruct
 	public void init() {
+		
+		Format f1=new Format();
+		f1.setBrojUcesnika(11);
+		f1.setNaziv("Fudbalska liga");
+		formatService.save(f1);
+		
+		
 		Takmicenje t1=new Takmicenje();
 		t1.setNaziv("Super liga");
+		t1.setFormat(f1);
 		takmicenjeService.save(t1);
 		
 		Takmicenje t2=new Takmicenje();
 		t2.setNaziv("Lav kup");
+		t2.setFormat(f1);
 		takmicenjeService.save(t2);
 		
 		
