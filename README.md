@@ -4,15 +4,15 @@ Projekat srpskog takmičenja u fudbalu
 
 Spring Boot aplikacija 
 
-Za front-end koriscen je AngularJS kao i Bootstrap 
+Za front-end korišćen je AngularJS kao i Bootstrap 
 
-Ukljucena validacija unosa kao i paginacija strana prikazane korisniku.
+Uključena validacija unosa kao i paginacija strana prikazane korisniku.
 
-Pretraga izvrsena preko JPQL query-ja.
+Pretraga izvršena preko JPQL query-ja.
 
-Komunikacija sa SPA izvrsena preko AJAX-a 
+Komunikacija sa SPA izvršena preko AJAX-a 
 
 ---
 #Baza podataka
 ---
-skripta za kreiranje ORM baze podataka u MySQL workbench-u.
+Skripta za kreiranje ORM baze podataka u MySQL workbench-u.
